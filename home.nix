@@ -1,0 +1,105 @@
+{ config, pkgs, ... }:
+
+{
+  home.username = "matt";
+  home.homeDirectory = "/home/matt";
+
+  home.stateVersion = "26.05";
+  
+  imports = [
+    ./shell
+  ];
+
+  # Packages list
+  nixpkgs.config.allowUnfree = true;
+  home.packages = with pkgs; [
+    ########## Miscellaneous ##########
+    firefox # Main browser
+    thunderbird # Mail client
+    nemo # Main file manager
+    fastfetch # System infos
+    wl-clipboard # clipboard additions (used for neovim)
+    btop-cuda
+    htop
+
+
+    ########## Gaming ##########
+    discord
+    protontricks
+    vulkan-tools
+    mangohud
+    nvtopPackages.full
+    gpustat
+
+
+    ########## Programming ##########
+    python313Packages.python
+    luarocks # used by treesitter in neovim config
+    lua5_1 # Same
+    nodejs
+    cargo # Rust package manager
+    gcc # Toolchain for C
+    livegrep #text searching
+
+
+    ########## WM environment ##########
+    python313Packages.pywal16
+    wofi # App launcher
+    hyprlock # Lockscreen
+    hypridle # Idle detector, auto suspend
+    hyprpaper # Wallpaper manager
+    nsxiv # Image viewer, used for wallpaper selection
+    waybar # Bar
+    hyprshot # Screenshot tool 
+    brightnessctl # Screen brightness tool
+    wlogout # Logout screen
+    gdk-pixbuf # Used by wlogout
+    bibata-cursors # Mouse cursor
+    tuigreet # Greeter, display manager
+
+  ];
+
+
+
+
+
+
+  # Home Manager is pretty good at managing dotfiles. The primary way to manage
+  # plain files is through 'home.file'.
+  home.file = {
+    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
+    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
+    # # symlink to the Nix store copy.
+    # ".screenrc".source = dotfiles/screenrc;
+
+    # # You can also set the file content immediately.
+    # ".gradle/gradle.properties".text = ''
+    #   org.gradle.console=verbose
+    #   org.gradle.daemon.idletimeout=3600000
+    # '';
+  };
+
+  # Home Manager can also manage your environment variables through
+  # 'home.sessionVariables'. These will be explicitly sourced when using a
+  # shell provided by Home Manager. If you don't want to manage your shell
+  # through Home Manager then you have to manually source 'hm-session-vars.sh'
+  # located at either
+  #
+  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+  #
+  # or
+  #
+  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
+  #
+  # or
+  #
+  #  /etc/profiles/per-user/matt/etc/profile.d/hm-session-vars.sh
+  #
+  home.sessionVariables = {
+    # EDITOR = "emacs";
+    SHELL = "fish";
+  };
+
+  # Let Home Manager install and manage itself.
+  programs.home-manager.enable = true;
+}
