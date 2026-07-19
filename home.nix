@@ -1,36 +1,32 @@
-{ config, pkgs, ... }:
-
 {
-  home.username = "matt";
-  home.homeDirectory = "/home/matt";
+  config,
+  pkgs,
+  ...
+}: {
+  home = {
+    username = "matt";
+    homeDirectory = "/home/matt";
+    stateVersion = "26.05";
+  };
 
-  home.stateVersion = "26.05";
-  
   imports = [
     ./shell
+    ./gaming
+    ./graphical-env
+    ./neovim
   ];
 
   # Packages list
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
     ########## Miscellaneous ##########
-    firefox # Main browser
+    firefox
     thunderbird # Mail client
     nemo # Main file manager
     fastfetch # System infos
     wl-clipboard # clipboard additions (used for neovim)
     btop-cuda
     htop
-
-
-    ########## Gaming ##########
-    discord
-    protontricks
-    vulkan-tools
-    mangohud
-    nvtopPackages.full
-    gpustat
-
 
     ########## Programming ##########
     python313Packages.python
@@ -41,7 +37,6 @@
     gcc # Toolchain for C
     livegrep #text searching
 
-
     ########## WM environment ##########
     python313Packages.pywal16
     wofi # App launcher
@@ -50,19 +45,12 @@
     hyprpaper # Wallpaper manager
     nsxiv # Image viewer, used for wallpaper selection
     waybar # Bar
-    hyprshot # Screenshot tool 
+    hyprshot # Screenshot tool
     brightnessctl # Screen brightness tool
     wlogout # Logout screen
     gdk-pixbuf # Used by wlogout
     bibata-cursors # Mouse cursor
-    tuigreet # Greeter, display manager
-
   ];
-
-
-
-
-
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.

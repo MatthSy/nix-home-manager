@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./ohmyposh
     ./kitty.nix
@@ -13,9 +15,15 @@
     unzip
     xz
 
-
     ########## Miscellaneous ##########
     fzf
     bat
   ];
+
+  programs.fzf = {
+    enable = true;
+    defaultOptions = [
+      "--preview 'fzf-preview.sh {}'"
+    ];
+  };
 }

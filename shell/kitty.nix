@@ -1,10 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
   programs.kitty = {
     enable = true;
     enableGitIntegration = true;
-    font.name = "programs.kitty.font.name";
-    font.size = 16;
+    font.name = lib.mkForce "jetbrains-mono";
+    font.size = lib.mkForce 16;
     shellIntegration.enableZshIntegration = true;
     settings = {
       shell = "fish";
