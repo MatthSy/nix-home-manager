@@ -3,6 +3,11 @@
   pkgs,
   ...
 }: {
+  programs.neovim = {
+    extraLuaPackages = ps: [ps.magick];
+    extraPackages = [pkgs.imagemagick];
+  };
+
   programs.nvf = {
     enable = true;
 
@@ -28,10 +33,18 @@
       ui.noice.enable = true;
       lsp.null-ls.enable = true;
       notes.todo-comments.enable = true;
+      visuals.nvim-web-devicons.enable = true;
+      mini.tabline.enable = true;
 
       # Options for plugins :
       dashboard.alpha.theme = "theta";
       statusline.lualine.theme = "base16";
+      filetree.neo-tree.setupOpts = {
+        window = {
+          position = "left";
+          width = 30;
+        };
+      };
 
       options = {
         tabstop = 2;
@@ -43,16 +56,39 @@
 
       keymaps = [
         {
+          # Open Neotree
           key = "<C-n>";
-          mode = ["n" "x" "v"];
+          mode = ["i" "n" "x" "v"];
           silent = true;
-          action = ":Neotree<CR>";
+          action = "<Esc>:Neotree<CR>";
         }
         {
-          key = "<C-n>";
-          mode = ["i"];
+          # Unfocus Neotree
+          key = "<leader><Esc>";
+          mode = ["n" "v"];
           silent = true;
-          action = ":<Esc>Neotree<CR>";
+          action = "<Esc>:Neotree filesystem close<CR><Esc>:Neotree filesystem show<CR>";
+        }
+        {
+          # Cycle to next opened buffer
+          key = "<A-Right>";
+          mode = ["i" "n" "x" "v"];
+          silent = false;
+          action = "<Esc>:bnext<CR>";
+        }
+        {
+          # Cycle to previous opened buffer
+          key = "<A-Left>";
+          mode = ["i" "n" "x" "v"];
+          silent = false;
+          action = "<Esc>:bprev<CR>";
+        }
+        {
+          # Close current buffer
+          key = "<C-Del>";
+          mode = ["i" "n" "x" "v"];
+          silent = false;
+          action = "<Esc>:bd<CR><Esc>:bnext<CR>:Neotree filesystem close<CR>";
         }
       ];
     };
