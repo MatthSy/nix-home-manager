@@ -15,13 +15,24 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    noctalia = {
+      url = "github:noctalia-dev/noctalia/cachix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, nvf, ... }@inputs:
-  let
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    stylix,
+    nvf,
+    noctalia,
+    ...
+  } @ inputs: let
     lib = nixpkgs.lib;
     system = "x86_64-linux";
-    pkgs = import nixpkgs { inherit system; };
+    pkgs = import nixpkgs {inherit system;};
     username = "matt";
   in {
     homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
@@ -30,10 +41,10 @@
         ./home.nix
         stylix.homeModules.stylix
         nvf.homeManagerModules.default
+        noctalia.homeModules.default
       ];
 
-      extraSpecialArgs = { inherit username; };
+      extraSpecialArgs = {inherit username;};
     };
   };
 }
-

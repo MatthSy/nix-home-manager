@@ -1,13 +1,15 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   imports = [];
 
   stylix = {
     enable = true;
     image = ../wallpapers/nixos.png;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
-
+    polarity = "dark";
 
     fonts = {
       monospace = {
