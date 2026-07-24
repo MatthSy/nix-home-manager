@@ -7,6 +7,7 @@
     ./stylix
     ./wayle.nix
     ./noctalia.nix
+    ./hypr
   ];
 
   home.packages = with pkgs; [

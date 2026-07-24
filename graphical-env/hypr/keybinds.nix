@@ -31,17 +31,17 @@
       "$mainMod & CTRL, F, fullscreen"
 
       # An exit menu
-      # bind = CTRL & ALT, Delete, exec, $HOME/.config/hypr/scripts/exit_menu.sh
+      # bind = CTRL & ALT, Delete, exec, $HOME/.config/home-manager/graphical-env/hypr/scripts/exit_menu.sh
       # bind = CTRL & ALT, Delete, exec, wlogout
       "CTRL & ALT, Delete, exec, noctalia msg panel-toggle session"
 
       # Waybar keybinds
-      "$mainMod, B, exec, $HOME/.config/hypr/scripts/toggleWaybar.sh"
+      "$mainMod, B, exec, $HOME/.config/home-manager/graphical-env/hypr/scripts/toggleWaybar.sh"
       "$mainMod & L_Shift, B, exec, pkill -9 waybar; waybar;"
 
       # Change wallpaper and theme
-      "$mainMod & CTRL & L_Shift, W, exec, $HOME/.config/hypr/scripts/wallpapers/load_rand_wall.sh  "
-      "$mainMod & CTRL, W, exec, $HOME/.config/hypr/scripts/wallpapers/select_wall.sh  "
+      "$mainMod & CTRL & L_Shift, W, exec, $HOME/.config/home-manager/graphical-env/hypr/scripts/wallpapers/load_rand_wall.sh  "
+      "$mainMod & CTRL, W, exec, $HOME/.config/home-manager/graphical-env/hypr/scripts/wallpapers/select_wall.sh  "
 
       # Screenshot
       "$mainMod & L_Shift, S, exec, hyprshot -zm region # rectangular region"
@@ -52,12 +52,12 @@
       "$scdMod, Tab, bringactivetotop,    # bring it to the top"
 
       # Waybar keybinds
-      "$mainMod, B, exec, $HOME/.config/hypr/scripts/toggleWaybar.sh"
+      "$mainMod, B, exec, $HOME/.config/home-manager/graphical-env/hypr/scripts/toggleWaybar.sh"
       "$mainMod & L_Shift, B, exec, pkill -9 waybar; waybar;"
 
       # Change wallpaper and theme
-      "$mainMod & CTRL & L_Shift, W, exec, $HOME/.config/hypr/scripts/wallpapers/load_rand_wall.sh  "
-      "$mainMod & CTRL, W, exec, $HOME/.config/hypr/scripts/wallpapers/select_wall.sh  "
+      "$mainMod & CTRL & L_Shift, W, exec, $HOME/.config/home-manager/graphical-env/hypr/scripts/wallpapers/load_rand_wall.sh  "
+      "$mainMod & CTRL, W, exec, $HOME/.config/home-manager/graphical-env/hypr/scripts/wallpapers/select_wall.sh  "
 
       # Screenshot
       "$mainMod & L_Shift, S, exec, hyprshot -zm region # rectangular region"
@@ -93,10 +93,10 @@
 
     bindl = [
       # Lock the screen and suspend after 30 sec
-      "$mainMod, L, exec, $HOME/.config/hypr/scripts/manualLock.sh"
+      "$mainMod, L, exec, $HOME/.config/home-manager/graphical-env/hypr/scripts/manualLock.sh"
 
       #activate/deactivate autosuspend :
-      "$mainMod & L_Shift, L, exec, $HOME/.config/hypr/scripts/toggle_autosuspend.sh"
+      "$mainMod & L_Shift, L, exec, $HOME/.config/home-manager/graphical-env/hypr/scripts/toggle_autosuspend.sh"
     ];
 
     binde = [
@@ -168,14 +168,14 @@
 
       # Brightness
       ",XF86MonBrightnessUp, exec, brightnessctl s 5%+ "
-      #bindel = ,XF86MonBrightnessUp, exec, $HOME/.config/hypr/scripts/displayBrightness.sh
+      #bindel = ,XF86MonBrightnessUp, exec, $HOME/.config/home-manager/graphical-env/hypr/scripts/displayBrightness.sh
       ",XF86MonBrightnessDown, exec, brightnessctl s 5%-"
-      #bindel = ,XF86MonBrightnessDown, exec, $HOME/.config/hypr/scripts/displayBrightness.sh
+      #bindel = ,XF86MonBrightnessDown, exec, $HOME/.config/home-manager/graphical-env/hypr/scripts/displayBrightness.sh
       #Brightness for 2nd keyboard :
       "$mainMod, F1, exec, brightnessctl s 5%- "
-      "$mainMod, F1, exec, $HOME/.config/hypr/scripts/displayBrightness.sh"
+      "$mainMod, F1, exec, $HOME/.config/home-manager/graphical-env/hypr/scripts/displayBrightness.sh"
       "$mainMod, F2, exec, brightnessctl s 5%+ "
-      "$mainMod, F2, exec, $HOME/.config/hypr/scripts/displayBrightness.sh"
+      "$mainMod, F2, exec, $HOME/.config/home-manager/graphical-env/hypr/scripts/displayBrightness.sh"
     ];
 
     submap = {
