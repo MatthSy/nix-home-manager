@@ -9,7 +9,7 @@
 
     settings = {
       wallpaper = {
-        enabled = true;
+        enabled = false;
         # default.path = lib.mkForce "./wallpapers/nixos.png";
         directory = "./wallpapers";
       };
@@ -38,13 +38,17 @@
 
         start = ["workspaces" "active_window"];
         center = ["clock"];
-        end = ["out_vol" "in_vol" "privacy" "media" "tray" "battery" "clock-date"];
+        end = ["out_vol" "in_vol" "privacy" "media" "clipboard" "tray" "battery" "clock-date"];
       };
 
       widget = {
         # Start (left) :
+        workspaces = {
+          display = "name";
+          active_pill_size = 1.8;
+        };
         active_window = {
-          max_lenght = 30;
+          max_length = 300;
         };
 
         # End (right) :
@@ -73,6 +77,12 @@
         tray = {
           drawer = true;
           drawer_item_size = 20;
+        };
+      };
+
+      shell = {
+        panel = {
+          list_item_background = true;
         };
       };
     };

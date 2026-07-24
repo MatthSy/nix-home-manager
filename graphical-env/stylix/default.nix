@@ -22,7 +22,7 @@
       emoji = config.stylix.fonts.monospace;
     };
 
-    targets.firefox.enable = false;
+    # targets.firefox.enable = false;
     # targets.thunderbird.enable = false;
   };
 }

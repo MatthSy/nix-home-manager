@@ -23,33 +23,18 @@
     firefox
     thunderbird # Mail client
     nemo # Main file manager
-    fastfetch # System infos
     wl-clipboard # clipboard additions (used for neovim)
     btop-cuda
     htop
+    deezer-enhanced
+    libreoffice-qt-fresh
+    hyphenDicts.fr-fr
 
     ########## Programming ##########
-    python313Packages.python
-    luarocks # used by treesitter in neovim config
-    lua5_1 # Same
-    nodejs
     cargo # Rust package manager
     gcc # Toolchain for C
-    livegrep #text searching
 
     ########## WM environment ##########
-    python313Packages.pywal16
-    wofi # App launcher
-    hyprlock # Lockscreen
-    hypridle # Idle detector, auto suspend
-    hyprpaper # Wallpaper manager
-    nsxiv # Image viewer, used for wallpaper selection
-    waybar # Bar
-    hyprshot # Screenshot tool
-    brightnessctl # Screen brightness tool
-    wlogout # Logout screen
-    gdk-pixbuf # Used by wlogout
-    bibata-cursors # Mouse cursor
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

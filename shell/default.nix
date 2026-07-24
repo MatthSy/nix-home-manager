@@ -18,6 +18,9 @@
     ########## Miscellaneous ##########
     fzf
     bat
+    fastfetch # System infos
+    livegrep
+    ripgrep
   ];
 
   programs.fzf = {
