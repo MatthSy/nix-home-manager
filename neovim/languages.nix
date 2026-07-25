@@ -1,12 +1,19 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   programs.nvf.settings.vim.languages = {
     enableFormat = true;
     enableTreesitter = true;
     enableExtraDiagnostics = true;
 
     nix = {
+      enable = true;
+      lsp.enable = true;
+    };
+
+    lua = {
       enable = true;
       lsp.enable = true;
     };

@@ -22,6 +22,7 @@
     gdk-pixbuf # Used by wlogout
     bibata-cursors # Mouse cursor
     hyprpolkitagent # Password asker for privilege required apps
+    hyprpwcenter
   ];
 
   services.hyprpaper.enable = true;
