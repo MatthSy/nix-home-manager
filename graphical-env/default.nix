@@ -8,6 +8,7 @@
     ./wayle.nix
     ./noctalia.nix
     ./hypr
+    ./wofi.nix
   ];
 
   home.packages = with pkgs; [

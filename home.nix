@@ -21,6 +21,7 @@
   home.packages = with pkgs; [
     ########## Miscellaneous ##########
     firefox
+    ungoogled-chromium
     thunderbird # Mail client
     nemo # Main file manager
     wl-clipboard # clipboard additions (used for neovim)
