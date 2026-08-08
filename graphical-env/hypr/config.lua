@@ -16,20 +16,11 @@ hl.monitor({
 })
 
 hl.monitor({
-  output = "eDP-1",
-  mode = "1920x1080@144",
-  position = "auto",
-  scale = "1",
-  vrr = 3,
-})
-
-hl.monitor({
-  output = "HDMI-A-1",
-  -- desc = "XEC MFG27F4Q Pro 0000000000000",
-  mode = "1920x1080@119.88",
-  position = "auto",
-  scale = "1",
-  vrr = 3,
+    output = "DP-1",
+    mode = "2560x1440@260",
+    position = "auto",
+    scale = "1",
+    vrr = 3,
 })
 
 hl.env("WLR_DRM_VRR_ENABLED", "1")

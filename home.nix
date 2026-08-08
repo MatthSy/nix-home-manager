@@ -25,7 +25,7 @@
     thunderbird # Mail client
     nemo # Main file manager
     wl-clipboard # clipboard additions (used for neovim)
-    btop-cuda
+    btop
     htop
     deezer-enhanced
     libreoffice-qt-fresh
