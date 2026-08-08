@@ -11,7 +11,6 @@
     protontricks
     vulkan-tools
     mangohud
-    nvtopPackages.full
     gpustat
     gamemode
   ];
