@@ -23,6 +23,14 @@
     firefox
     ungoogled-chromium
     thunderbird # Mail client
+<<<<<<< HEAD:users/matt.nix
+=======
+    nemo # Main file manager
+    wl-clipboard # clipboard additions (used for neovim)
+    btop
+    htop
+    deezer-enhanced
+>>>>>>> c91329b (Config PC fixe):home.nix
     libreoffice-qt-fresh
     hyphenDicts.fr-fr
 
