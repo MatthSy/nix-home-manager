@@ -8,19 +8,28 @@ local terminal = "kitty"
 local webBrowser = "firefox"
 
 hl.monitor({
-    output = "",
-    mode = "preferred",
-    position = "auto",
-    scale = "1",
-    mirror = "eDP-1",
+  output = "",
+  mode = "preferred",
+  position = "auto",
+  scale = "1",
+  -- mirror = "eDP-1",
 })
 
 hl.monitor({
-    output = "eDP-1",
-    mode = "1920x1080@144",
-    position = "auto",
-    scale = "1",
-    vrr = 3,
+  output = "eDP-1",
+  mode = "1920x1080@144",
+  position = "auto",
+  scale = "1",
+  vrr = 3,
+})
+
+hl.monitor({
+  output = "HDMI-A-1",
+  -- desc = "XEC MFG27F4Q Pro 0000000000000",
+  mode = "1920x1080@119.88",
+  position = "auto",
+  scale = "1",
+  vrr = 3,
 })
 
 hl.env("WLR_DRM_VRR_ENABLED", "1")
@@ -30,7 +39,6 @@ hl.env("WLR_DRM_VRR_ENABLED", "1")
 --##################
 
 -- See https://wiki.hyprland.org/Configuring/Keywords/
-
 
 -- Source files:
 -- Source: ~/.config/hypr/keybinds.conf — convert this file to Lua and ensure it is on Lua's package.path.
@@ -42,7 +50,7 @@ hl.env("WLR_DRM_VRR_ENABLED", "1")
 
 --
 
--- Custom Cursor 
+-- Custom Cursor
 
 -- Autostart apps
 
@@ -91,204 +99,203 @@ hl.env("HYPRCURSOR_SIZE", "24")
 
 hl.curve("myBezier", { type = "bezier", points = { { 0.05, 0.9 }, { 0.1, 1.05 } } })
 hl.animation({
-    leaf = "windows",
-    enabled = true,
-    speed = 0.7,
-    bezier = "myBezier",
-    style = "slide",
+  leaf = "windows",
+  enabled = true,
+  speed = 0.7,
+  bezier = "myBezier",
+  style = "slide",
 })
 hl.animation({
-    leaf = "windowsOut",
-    enabled = true,
-    speed = 0.7,
-    bezier = "myBezier",
-    style = "popin 80%",
+  leaf = "windowsOut",
+  enabled = true,
+  speed = 0.7,
+  bezier = "myBezier",
+  style = "popin 80%",
 })
 hl.animation({
-    leaf = "fade",
-    enabled = true,
-    speed = 5,
-    bezier = "default",
+  leaf = "fade",
+  enabled = true,
+  speed = 5,
+  bezier = "default",
 })
 hl.animation({
-    leaf = "workspaces",
-    enabled = true,
-    speed = 1,
-    bezier = "default",
+  leaf = "workspaces",
+  enabled = true,
+  speed = 1,
+  bezier = "default",
 })
 
 hl.gesture({
-    fingers = 3,
-    direction = "horizontal",
-    action = "workspace",
+  fingers = 3,
+  direction = "horizontal",
+  action = "workspace",
 })
 
 hl.device({
-    name = "steelseries-steelseries-rival-3",
-    sensitivity = -0.60,
+  name = "steelseries-steelseries-rival-3",
+  sensitivity = -0.60,
 })
 
 hl.device({
-    name = "elan0752:00-04f3:31c2-touchpad",
-    sensitivity = 0.1,
-    natural_scroll = true,
+  name = "elan0752:00-04f3:31c2-touchpad",
+  sensitivity = 0.1,
+  natural_scroll = true,
 })
 
 hl.device({
-    name = "logitech-logig-tkl-mkeyboard",
+  name = "logitech-logig-tkl-mkeyboard",
 })
 
 hl.window_rule({
-    match = {
-        class = ".*Nsxiv.*",
-    },
-    float = true,
-    size = "50% 60%",
+  match = {
+    class = ".*Nsxiv.*",
+  },
+  float = true,
+  size = "50% 60%",
 })
 
 hl.window_rule({
-    name = "Discord",
-    match = {
-        class = "discord",
-    },
-    workspace = "name:D",
-    no_initial_focus = true,
+  name = "Discord",
+  match = {
+    class = "discord",
+  },
+  workspace = "name:D",
+  no_initial_focus = true,
 })
 
 hl.window_rule({
-    match = {
-        class = "jetbrains(.*)",
-    },
-    opaque = true,
+  match = {
+    class = "jetbrains(.*)",
+  },
+  opaque = true,
 })
 
 hl.window_rule({
-    name = "kalk",
-    match = {
-        class = ".*kalk.*",
-    },
-    float = true,
-    move = "(monitor_w-window_w-(window_w*0.3)) (monitor_h*0.03)",
-    size = "(monitor_w*0.2) (monitor_h*0.5)",
+  name = "kalk",
+  match = {
+    class = ".*kalk.*",
+  },
+  float = true,
+  move = "(monitor_w-window_w-(window_w*0.3)) (monitor_h*0.03)",
+  size = "(monitor_w*0.2) (monitor_h*0.5)",
 })
 
 hl.window_rule({
-    name = "nemo",
-    match = {
-        class = ".*nemo.*",
-    },
-    float = true,
-    move = "(monitor_w-window_w-(window_w*0.09)) (window_h*0.06)",
-    size = "(monitor_w*0.45) (monitor_h*0.6)",
+  name = "nemo",
+  match = {
+    class = ".*nemo.*",
+  },
+  float = true,
+  move = "(monitor_w-window_w-(window_w*0.09)) (window_h*0.06)",
+  size = "(monitor_w*0.45) (monitor_h*0.6)",
 })
 
 hl.config({
-    general = {
-        gaps_in = 2,
-        gaps_out = 3,
-        border_size = 3,
-        col = {
-            -- active_border = color1,
-            -- inactive_border = background,
-        },
-        -- Set to true enable resizing windows by clicking and dragging on borders and gaps
-        resize_on_border = false,
-        -- Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
-        allow_tearing = false,
-        layout = "dwindle",
+  general = {
+    gaps_in = 2,
+    gaps_out = 3,
+    border_size = 3,
+    col = {
+      -- active_border = color1,
+      -- inactive_border = background,
     },
-    misc = {
-        disable_splash_rendering = false,
-        force_default_wallpaper = 1, -- Set to 0 or 1 to disable the anime mascot wallpapers
-        disable_hyprland_logo = true, -- If true disables the random hyprland logo / anime girl background. :(
+    -- Set to true enable resizing windows by clicking and dragging on borders and gaps
+    resize_on_border = false,
+    -- Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
+    allow_tearing = false,
+    layout = "dwindle",
+  },
+  misc = {
+    disable_splash_rendering = false,
+    force_default_wallpaper = 1, -- Set to 0 or 1 to disable the anime mascot wallpapers
+    disable_hyprland_logo = true, -- If true disables the random hyprland logo / anime girl background. :(
+    middle_click_paste = false,
+  },
+  binds = {
+    scroll_event_delay = 5,
+  },
+  -- https://wiki.hyprland.org/Configuring/Variables/#decoration
+  decoration = {
+    rounding = 3,
+    -- Change transparency of focused and unfocused windows
+    active_opacity = 1,
+    inactive_opacity = 0.83,
+    shadow = {
+      enabled = false,
+      range = 4,
+      render_power = 3,
+      -- color = "rgba(1a1a1aee)",
     },
-    binds = {
-        scroll_event_delay = 5,
+    -- https://wiki.hyprland.org/Configuring/Variables/#blur
+    blur = {
+      enabled = true,
+      size = 3,
+      passes = 2,
+      vibrancy = 0.0696,
     },
-    -- https://wiki.hyprland.org/Configuring/Variables/#decoration
-    decoration = {
-        rounding = 3,
-        -- Change transparency of focused and unfocused windows
-        active_opacity = 1,
-        inactive_opacity = 0.83,
-        shadow = {
-            enabled = false,
-            range = 4,
-            render_power = 3,
-            -- color = "rgba(1a1a1aee)",
-        },
-        -- https://wiki.hyprland.org/Configuring/Variables/#blur
-        blur = {
-            enabled = true,
-            size = 3,
-            passes = 2,
-            vibrancy = 0.0696,
-        },
+  },
+  -- https://wiki.hyprland.org/Configuring/Variables/#animations
+  animations = {
+    enabled = true,
+    -- Default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
+  },
+  -- See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
+  dwindle = {
+    -- pseudotile = true # Master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
+    preserve_split = true, -- You probably want this
+  },
+  -- See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
+  master = {
+    new_status = "master",
+  },
+  -- https://wiki.hyprland.org/Configuring/Variables/#misc
+  --############
+  --## INPUT ###
+  --############
+  -- https://wiki.hyprland.org/Configuring/Variables/#input
+  input = {
+    kb_layout = "fr",
+    kb_variant = "",
+    kb_model = "",
+    kb_options = "",
+    kb_rules = "",
+    follow_mouse = 1,
+    sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
+    touchpad = {
+      natural_scroll = true,
+      scroll_factor = 0.25,
     },
-    -- https://wiki.hyprland.org/Configuring/Variables/#animations
-    animations = {
-        enabled = true,
-        -- Default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
-    },
-    -- See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
-    dwindle = {
-        -- pseudotile = true # Master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
-        preserve_split = true, -- You probably want this
-    },
-    -- See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
-    master = {
-        new_status = "master",
-    },
-    -- https://wiki.hyprland.org/Configuring/Variables/#misc
-    --############
-    --## INPUT ###
-    --############
-    -- https://wiki.hyprland.org/Configuring/Variables/#input
-    input = {
-        kb_layout = "fr",
-        kb_variant = "",
-        kb_model = "",
-        kb_options = "",
-        kb_rules = "",
-        follow_mouse = 1,
-        sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
-        touchpad = {
-            natural_scroll = true,
-            scroll_factor = 0.25,
-        },
-    },
-    -- https://wiki.hyprland.org/Configuring/Variables/#gestures
-    gestures = {
-        -- workspace_swipe = true
-    },
-    -- Example per-device config
-    -- See https://wiki.hyprland.org/Configuring/Keywords/#per-device-input-configs for more
-    --#############################
-    --## WINDOWS AND WORKSPACES ###
-    --#############################
-    -- See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
-    -- See https://wiki.hyprland.org/Configuring/Workspace-Rules/ for workspace rules
-    -- Example windowrule v1
-    -- windowrule = float, ^(kitty)$
-    -- Example windowrule v2
-    -- windowrule = float,class:^(kitty)$,title:^(kitty)$
-    -- windowrule = suppressevent maximize, class:.* # You'll probably like this.
-    -- windowrule = match:class=discord, workspace name:D
-    -- windowrule = noinitialfocus, class:discord
-    -- windowrule = float on, match:class .*kalk.*
-    -- windowrule = move 100%-w-2% 5%, class:.*kalk.*
+  },
+  -- https://wiki.hyprland.org/Configuring/Variables/#gestures
+  gestures = {
+    -- workspace_swipe = true
+  },
+  -- Example per-device config
+  -- See https://wiki.hyprland.org/Configuring/Keywords/#per-device-input-configs for more
+  --#############################
+  --## WINDOWS AND WORKSPACES ###
+  --#############################
+  -- See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
+  -- See https://wiki.hyprland.org/Configuring/Workspace-Rules/ for workspace rules
+  -- Example windowrule v1
+  -- windowrule = float, ^(kitty)$
+  -- Example windowrule v2
+  -- windowrule = float,class:^(kitty)$,title:^(kitty)$
+  -- windowrule = suppressevent maximize, class:.* # You'll probably like this.
+  -- windowrule = match:class=discord, workspace name:D
+  -- windowrule = noinitialfocus, class:discord
+  -- windowrule = float on, match:class .*kalk.*
+  -- windowrule = move 100%-w-2% 5%, class:.*kalk.*
 })
 
 hl.on("hyprland.start", function()
-    hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
-    hl.exec_cmd("hyprctl setcursor Bibata-Modern-Ice 24")
-    hl.exec_cmd(terminal, { workspace = "special:magic" })
-    hl.exec_cmd(webBrowser, { workspace = "1" })
-    hl.exec_cmd("noctalia")
-    hl.exec_cmd("hyprpaper")
-    hl.exec_cmd("~/.config/home-manager/graphical-env/hypr/scripts/run_XDPH.sh")
-    hl.exec_cmd("systemctl --user start plasma-polkit-agent")
-    hl.exec_cmd("hypridle")
+  hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+  hl.exec_cmd("hyprctl setcursor Bibata-Modern-Ice 24")
+  hl.exec_cmd(terminal, { workspace = "special:magic silent" })
+  hl.exec_cmd(webBrowser, { workspace = "1 silent" })
+  hl.exec_cmd("noctalia")
+  hl.exec_cmd("hyprpaper")
+  hl.exec_cmd("~/.config/home-manager/graphical-env/hypr/scripts/run_XDPH.sh")
+  hl.exec_cmd("systemctl --user start plasma-polkit-agent")
+  hl.exec_cmd("hypridle")
 end)
-
-

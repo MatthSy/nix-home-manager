@@ -13,6 +13,7 @@
     mangohud
     nvtopPackages.full
     gpustat
+    gamemode
   ];
 
   # Patch for the desktop entry, prevent black screen.
@@ -31,8 +32,8 @@
   #   enable = true;
   #   settings = {
   #     general = {
-  #       softrealtime = "auto";
-  #       renice = 15;
+  #       # softrealtime = "auto";
+  #       # renice = 15;
   #     };
   #   };
   # };

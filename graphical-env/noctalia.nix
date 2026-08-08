@@ -84,6 +84,10 @@
         panel = {
           list_item_background = true;
         };
+
+        launcher = {
+          compact = true;
+        };
       };
     };
   };
