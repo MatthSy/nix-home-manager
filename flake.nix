@@ -33,18 +33,34 @@
     lib = nixpkgs.lib;
     system = "x86_64-linux";
     pkgs = import nixpkgs {inherit system;};
-    username = "matt";
+    mkHomeConfig = username: hostname: extraModules:
+      home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules =
+          [
+            ./hosts/${hostname}.nix
+            ./users/${username}.nix
+            ./user-host/${username}-${hostname}.nix
+          ]
+          ++ extraModules;
+
+        extraSpecialArgs = {
+          inherit username;
+        };
+      };
   in {
-    homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
-      modules = [
-        ./home.nix
+    homeConfigurations = {
+      "matt@omen" = mkHomeConfig "matt" "omen" [
         stylix.homeModules.stylix
         nvf.homeManagerModules.default
         noctalia.homeModules.default
       ];
 
-      extraSpecialArgs = {inherit username;};
+      "matt@fixe" = mkHomeConfig "matt" "fixe" [
+        stylix.homeModules.stylix
+        nvf.homeManagerModules.default
+        noctalia.homeModules.default
+      ];
     };
   };
 }
