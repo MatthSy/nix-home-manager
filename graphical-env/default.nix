@@ -1,10 +1,8 @@
 {pkgs, ...}: {
   imports = [
     ./stylix
-    ./wayle.nix
     ./noctalia.nix
     ./hypr
-    # ./wofi.nix
   ];
 
   home.packages = with pkgs; [
@@ -15,10 +13,12 @@
     nsxiv # Image viewer
     hyprshot # Screenshot tool
     brightnessctl # Screen brightness tool
+    nemo # Main file manager
     # wlogout # Logout screen
-    gdk-pixbuf # Used by wlogout
+    # gdk-pixbuf # Used by wlogout
     hyprpolkitagent # Password asker for privilege required apps
-    hyprpwcenter
+    # hyprpwcenter # Pipewire settings gui app
+    wl-clipboard # clipboard additions (used for neovim)
   ];
 
   services.hyprpaper.enable = true;

@@ -23,15 +23,12 @@
     firefox
     ungoogled-chromium
     thunderbird # Mail client
-    nemo # Main file manager
-    wl-clipboard # clipboard additions (used for neovim)
-    htop
     libreoffice-qt-fresh
     hyphenDicts.fr-fr
 
     ########## Programming ##########
-    cargo # Rust package manager
-    gcc # Toolchain for C
+    # cargo # Rust package manager
+    # gcc # Toolchain for C
 
     ########## WM environment ##########
   ];
