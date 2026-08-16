@@ -19,6 +19,8 @@
     hyprpolkitagent # Password asker for privilege required apps
     # hyprpwcenter # Pipewire settings gui app
     wl-clipboard # clipboard additions (used for neovim)
+
+    localsend # Alternative to airdrop
   ];
 
   services.hyprpaper.enable = true;
