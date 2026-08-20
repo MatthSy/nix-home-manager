@@ -61,6 +61,10 @@
         nvf.homeManagerModules.default
         noctalia.homeModules.default
       ];
+
+      "matt_serv@serv" = mkHomeConfig "matt_serv" "serv" [
+        nvf.homeManagerModules.default
+      ];
     };
   };
 }
