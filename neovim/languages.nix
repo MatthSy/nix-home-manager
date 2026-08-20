@@ -23,7 +23,7 @@
     formatOnSave = true;
     lspkind.enable = false;
     lightbulb.enable = true;
-    lspsaga.enable = false;
+    lspsaga.enable = true;
     trouble.enable = true;
   };
 }

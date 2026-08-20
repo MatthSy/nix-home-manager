@@ -4,8 +4,8 @@
   ...
 }: {
   programs.neovim = {
-    extraLuaPackages = ps: [ps.magick];
-    extraPackages = [pkgs.imagemagick];
+    # extraLuaPackages = ps: [ps.magick];
+    # extraPackages = [pkgs.imagemagick];
   };
 
   programs.nvf = {
@@ -52,9 +52,15 @@
       };
 
       # Key mapping :
-      lsp.mappings.codeAction = "<leader>a";
+
+      # lsp.mappings.codeAction = "<leader>a";
 
       keymaps = [
+        {
+          key = "<leader>a";
+          mode = ["n"];
+          action = ":Lspsaga code_action<CR>";
+        }
         {
           # Open Neotree
           key = "<C-n>";

@@ -53,6 +53,11 @@
     SHELL = "fish";
   };
 
+  xdg.mimeApps.defaultApplications = {
+    html = ["firefox.desktop"];
+    text = ["kitty -e nvim"];
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }

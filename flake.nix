@@ -38,7 +38,7 @@
         inherit pkgs;
         modules =
           [
-            ./hosts/${hostname}.nix
+            ./hosts/${hostname}
             ./users/${username}.nix
             ./user-host/${username}-${hostname}.nix
           ]
