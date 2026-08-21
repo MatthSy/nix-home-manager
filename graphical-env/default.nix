@@ -3,6 +3,7 @@
     ./stylix
     ./noctalia.nix
     ./hypr
+    ./jellyfin.nix
   ];
 
   home.packages = with pkgs; [
@@ -21,6 +22,7 @@
     wl-clipboard # clipboard additions (used for neovim)
 
     localsend # Alternative to airdrop
+    mpv
   ];
 
   services.hyprpaper.enable = true;
