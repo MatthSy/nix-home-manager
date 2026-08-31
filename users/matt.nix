@@ -24,7 +24,8 @@
     ungoogled-chromium
     thunderbird # Mail client
     libreoffice-qt-fresh
-    hyphenDicts.fr-fr
+    hunspell
+    hunspellDicts.fr-any
 
     ########## Programming ##########
     # cargo # Rust package manager
@@ -53,9 +54,17 @@
     SHELL = "fish";
   };
 
-  xdg.mimeApps.defaultApplications = {
-    html = ["firefox.desktop"];
-    text = ["kitty -e nvim"];
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "default-web-browser" = ["firefox.desktop"];
+      "text/html" = ["firefox.desktop"];
+      "x-scheme-handler/http" = ["firefox.desktop"];
+      "x-scheme-handler/https" = ["firefox.desktop"];
+      "x-scheme-handler/about" = ["firefox.desktop"];
+      "x-scheme-handler/unknown" = ["firefox.desktop"];
+      text = ["kitty -e nvim"];
+    };
   };
 
   # Let Home Manager install and manage itself.

@@ -14,7 +14,8 @@
     nsxiv # Image viewer
     hyprshot # Screenshot tool
     brightnessctl # Screen brightness tool
-    nemo # Main file manager
+    kdePackages.dolphin # Main file manager
+    nemo # Secondary
     # wlogout # Logout screen
     # gdk-pixbuf # Used by wlogout
     hyprpolkitagent # Password asker for privilege required apps

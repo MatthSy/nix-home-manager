@@ -9,8 +9,8 @@ local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 local scdMod = "ALT" -- Sets alt as second mod key
 
 local terminal = "kitty"
-local fileManager = "nemo"
-local fileManagerBis = "alacritty -e ranger"
+local fileManager = "dolphin"
+local fileManagerBis = "nemo"
 -- local menu = "bash --login -c \"wofi --show drun -l top -i\"" -- wofi --show drun -l top -i
 local menu = "noctalia msg panel-toggle launcher"
 local webBrowser = "firefox"
