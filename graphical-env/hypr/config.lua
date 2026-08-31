@@ -16,11 +16,11 @@ hl.monitor({
 })
 
 hl.monitor({
-    output = "DP-1",
-    mode = "2560x1440@260",
-    position = "auto",
-    scale = "1",
-    vrr = 3,
+  output = "DP-1",
+  mode = "2560x1440@260",
+  position = "auto",
+  scale = "1",
+  vrr = 3,
 })
 
 hl.env("WLR_DRM_VRR_ENABLED", "1")
@@ -172,13 +172,51 @@ hl.window_rule({
 })
 
 hl.window_rule({
-  name = "nemo",
+  name = "Dolphin",
   match = {
+    class = ".*dolphin.*",
+  },
+  float = true,
+})
+hl.window_rule({
+  name = "Home - Dolphin",
+  match = {
+    initial_title = "Home — Dolphin",
+    class = ".*Dolphin.*",
+  },
+  float = true,
+  move = "(monitor_w-window_w-(window_w*0.09)) (window_h*0.06)",
+  size = "(monitor_w*0.45) (monitor_h*0.6)",
+})
+
+hl.window_rule({
+  name = "Nemo",
+  match = {
+    class = ".*dolphin.*",
+  },
+  float = true,
+})
+hl.window_rule({
+  name = "Nemo",
+  match = {
+    initial_title = "Home",
     class = ".*nemo.*",
   },
   float = true,
   move = "(monitor_w-window_w-(window_w*0.09)) (window_h*0.06)",
   size = "(monitor_w*0.45) (monitor_h*0.6)",
+})
+
+-- Steam windowrules :
+hl.window_rule({
+  name = "Steam friend list",
+  match = {
+    initial_title = "Friends List",
+    class = ".*steam.*",
+  },
+  float = true,
+  size = "(monitor_w*0.15) (monitor_h*0.5)",
+  move = "(monitor_w-window_w*1.02) (monitor_h*0.05)",
 })
 
 hl.config({
