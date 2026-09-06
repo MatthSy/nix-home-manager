@@ -26,7 +26,7 @@
     mpv
   ];
 
-  services.hyprpaper.enable = true;
+  # services.hyprpaper.enable = true;
 
   home.pointerCursor = {
     enable = true;

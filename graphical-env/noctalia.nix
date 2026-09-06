@@ -9,9 +9,9 @@
 
     settings = {
       wallpaper = {
-        enabled = false;
+        enabled = true;
         # default.path = lib.mkForce "./wallpapers/nixos.png";
-        directory = "./wallpapers";
+        directory = "/home/matt/.config/home-manager/graphical-env/wallpapers";
       };
 
       bar.order = "main";
