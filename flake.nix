@@ -38,15 +38,17 @@
     # Themes :
     # custom_theme = "gruvbox";
     # custom_theme = "dracula";
-    custom_theme = "deep-oceanic";
+    # custom_theme = "deep-oceanic";
     # custom_theme = "mocha";
     # custom_theme = "latte";
+    custom_theme = "bm-bathory";
     themes = {
       "gruvbox" = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
       "mocha" = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
       "latte" = "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
       "deep-oceanic" = "${pkgs.base16-schemes}/share/themes/deep-oceanic-next.yaml";
       "dracula" = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
+      "bm-bathory" = "${pkgs.base16-schemes}/share/themes/black-metal-bathory.yaml";
     };
     getTheme = theme: default:
       if themes ? ${theme}

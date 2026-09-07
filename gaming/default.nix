@@ -8,7 +8,7 @@
     discord
 
     ########## Tools ##########
-    protontricks
+    # protontricks
     vulkan-tools
     mangohud
     gpustat
