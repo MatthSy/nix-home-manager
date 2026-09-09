@@ -19,6 +19,14 @@
       url = "github:noctalia-dev/noctalia/cachix";
       # inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
   };
 
   outputs = {
@@ -28,6 +36,8 @@
     stylix,
     nvf,
     noctalia,
+    hyprland,
+    hyprland-plugins,
     ...
   } @ inputs: let
     lib = nixpkgs.lib;

@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   imports = [
     # ./config.nix
     # ./keybinds.nix
@@ -16,5 +16,9 @@
         autoLoad = true;
       };
     };
+
+    plugins = [
+      inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.csgo-vulkan-fix
+    ];
   };
 }
