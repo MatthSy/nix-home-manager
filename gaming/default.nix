@@ -13,6 +13,8 @@
     mangohud
     gpustat
     gamemode
+
+    heroic
   ];
 
   # Patch for the desktop entry, prevent black screen.
