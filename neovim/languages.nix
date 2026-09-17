@@ -17,6 +17,16 @@
       enable = true;
       lsp.enable = true;
     };
+
+    clang = {
+      enable = true;
+      lsp.enable = true;
+    };
+
+    typescript = {
+      enable = true;
+      lsp.enable = true;
+    };
   };
 
   programs.nvf.settings.vim.lsp = {

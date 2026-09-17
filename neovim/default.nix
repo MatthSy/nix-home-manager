@@ -38,7 +38,7 @@
 
       # Options for plugins :
       dashboard.alpha.theme = "theta";
-      statusline.lualine.theme = "base16";
+      statusline.lualine.setupOpts.options.theme = "base16";
       filetree.neo-tree.setupOpts = {
         window = {
           position = "left";

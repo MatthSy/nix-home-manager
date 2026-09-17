@@ -36,12 +36,12 @@
 
     ############
     # Themes :
-    # custom_theme = "gruvbox";
+    custom_theme = "gruvbox";
     # custom_theme = "dracula";
     # custom_theme = "deep-oceanic";
     # custom_theme = "mocha";
     # custom_theme = "latte";
-    custom_theme = "bm-bathory";
+    # custom_theme = "bm-bathory";
     themes = {
       "gruvbox" = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
       "mocha" = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";

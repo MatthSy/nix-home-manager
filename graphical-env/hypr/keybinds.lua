@@ -38,11 +38,7 @@ hl.bind(mainMod .. " +  CTRL + F", hl.dsp.window.fullscreen({ mode = "fullscreen
 hl.bind("CTRL + ALT + Delete", hl.dsp.exec_cmd("noctalia msg panel-toggle session"))
 
 -- Lock the screen and suspend after 30 sec
-hl.bind(
-  mainMod .. " + L",
-  hl.dsp.exec_cmd("$HOME/.config/home-manager/graphical-env/hypr/scripts/manualLock.sh"),
-  { locked = true }
-)
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("noctalia msg session lock"), { locked = true })
 
 --activate/deactivate autosuspend :
 hl.bind(
@@ -52,7 +48,7 @@ hl.bind(
 )
 
 -- Waybar keybinds
-hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("$HOME/.config/home-manager/graphical-env/hypr/scripts/toggleWaybar.sh"))
+hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("noctalia msg bar-toggle"))
 -- hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("pkill -9 waybar; waybar;"))
 hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("pkill -9 noctalia; noctalia;"))
 

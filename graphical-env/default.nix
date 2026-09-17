@@ -8,7 +8,7 @@
 
   home.packages = with pkgs; [
     # wofi # App launcher
-    hyprlock # Lockscreen
+    # hyprlock # Lockscreen
     hypridle # Idle detector, auto suspend
     hyprpaper # Wallpaper manager
     nsxiv # Image viewer
@@ -24,6 +24,8 @@
 
     localsend # Alternative to airdrop
     mpv
+
+    notes
   ];
 
   # services.hyprpaper.enable = true;

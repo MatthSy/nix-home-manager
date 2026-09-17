@@ -64,6 +64,8 @@
       "x-scheme-handler/about" = ["firefox.desktop"];
       "x-scheme-handler/unknown" = ["firefox.desktop"];
       text = ["kitty -e nvim"];
+      "application/pdf" = ["firefox.desktop"];
+      pdf = ["firefox.desktop"];
     };
   };
 
