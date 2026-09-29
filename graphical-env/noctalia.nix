@@ -1,8 +1,66 @@
 {
   config,
   lib,
+  pkgs,
   ...
-}: {
+}: let
+  systemctl = "${pkgs.systemd}/bin/systemctl";
+in {
+  # Noctalia plugin for connecting to wireguard VPN with a button on the bar
+  #### WARNING: Musty be activated once with : noctalia msg plugins enable matt/wg-toggle
+  #
+  xdg.dataFile."noctalia/plugins/wg-toggle/plugin.toml".text = ''
+    id         = "matt/wg-toggle"
+    name       = "WireGuard toggle"
+    version    = "1.0.0"
+    plugin_api = 3
+    author     = "matt"
+
+    [[widget]]
+    id    = "toggle"
+    entry = "widget.luau"
+  '';
+
+  xdg.dataFile."noctalia/plugins/wg-toggle/widget.luau".text = ''
+    local SYSTEMCTL = "${systemctl}"
+    local up = false
+
+    local function render()
+      if up then
+        barWidget.setGlyph("shield-check")
+        barWidget.setText("VPN")
+      else
+        barWidget.setGlyph("shield-off")
+        barWidget.setText("")
+      end
+    end
+
+    local function poll()
+      noctalia.runAsync(SYSTEMCTL .. " is-active --quiet wg-quick-wg0", function(r)
+        up = (r.exitCode == 0)
+        render()
+      end)
+    end
+
+    noctalia.setUpdateInterval(2000)
+
+    function update()
+      poll()
+    end
+
+    function onClick()
+      local action = up and "stop" or "start"
+      noctalia.runAsync(SYSTEMCTL .. " " .. action .. " wg-quick-wg0", function(r)
+        if r.exitCode ~= 0 then
+          noctalia.notifyError("WireGuard", r.stderr)
+        end
+        poll()
+      end)
+    end
+
+    render()
+  '';
+
   programs.noctalia = {
     enable = true;
     systemd.enable = true;
@@ -38,7 +96,7 @@
 
         start = ["workspaces" "active_window"];
         center = ["clock"];
-        end = ["out_vol" "in_vol" "privacy" "media" "clipboard" "tray" "battery" "clock-date"];
+        end = ["out_vol" "in_vol" "privacy" "media" "matt/wg-toggle:toggle" "clipboard" "tray" "battery" "clock-date"];
       };
 
       widget = {
@@ -65,6 +123,7 @@
           type = "volume";
           device = "input";
         };
+
         privacy = {
           hide_inactive = true;
         };
