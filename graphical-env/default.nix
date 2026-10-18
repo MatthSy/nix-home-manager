@@ -26,7 +26,6 @@
     mpv
 
     notes
-    gparted
   ];
 
   # services.hyprpaper.enable = true;
