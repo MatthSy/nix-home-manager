@@ -29,4 +29,9 @@
       "--preview 'fzf-preview.sh {}'"
     ];
   };
+
+  programs.zoxide = {
+    enable = true;
+    enableFishIntegration = true;
+  };
 }
