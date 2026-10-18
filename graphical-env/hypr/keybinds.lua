@@ -18,7 +18,7 @@ local webBrowser = "firefox"
 
 -- Binds to run some apps
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
-hl.bind(mainMod .. " + Shift + Return", hl.dsp.exec_cmd(scdTerminal))
+hl.bind(mainMod .. " + SHIFT + Return", hl.dsp.exec_cmd(scdTerminal))
 hl.bind(mainMod .. " + F", hl.dsp.exec_cmd(webBrowser))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd(fileManagerBis))
