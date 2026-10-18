@@ -5,6 +5,8 @@
   ...
 }: let
   systemctl = "${pkgs.systemd}/bin/systemctl";
+  tailscale = "/run/current-system/sw/bin/tailscale";
+  tsUpFlags = "--login-server=https://vpn.sympho.fr --accept-routes";
 in {
   # Noctalia plugin for connecting to wireguard VPN with a button on the bar
   #### WARNING: Musty be activated once with : noctalia msg plugins enable matt/wg-toggle
@@ -61,6 +63,62 @@ in {
     render()
   '';
 
+  # Noctalia plugin : bouton Tailscale/Headscale
+  #### WARNING: activer une fois avec : noctalia msg plugins enable matt/ts-toggle
+  xdg.dataFile."noctalia/plugins/ts-toggle/plugin.toml".text = ''
+    id         = "matt/ts-toggle"
+    name       = "Tailscale toggle"
+    version    = "1.0.0"
+    plugin_api = 3
+    author     = "matt"
+
+    [[widget]]
+    id    = "toggle"
+    entry = "widget.luau"
+  '';
+
+  xdg.dataFile."noctalia/plugins/ts-toggle/widget.luau".text = ''
+    local TS = "${tailscale}"
+    local UP_FLAGS = "${tsUpFlags}"
+    local up = false
+
+    local function render()
+      if up then
+        barWidget.setGlyph("shield-check")
+        barWidget.setText("TS")
+      else
+        barWidget.setGlyph("shield-off")
+        barWidget.setText("")
+      end
+    end
+
+    local function poll()
+      -- code de sortie 0 uniquement quand le tunnel est actif
+      noctalia.runAsync(TS .. " status --peers=false", function(r)
+        up = (r.exitCode == 0)
+        render()
+      end)
+    end
+
+    noctalia.setUpdateInterval(2000)
+
+    function update()
+      poll()
+    end
+
+    function onClick()
+      local cmd = up and (TS .. " down") or (TS .. " up " .. UP_FLAGS)
+      noctalia.runAsync(cmd, function(r)
+        if r.exitCode ~= 0 then
+          noctalia.notifyError("Tailscale", r.stderr)
+        end
+        poll()
+      end)
+    end
+
+    render()
+  '';
+
   programs.noctalia = {
     enable = true;
     systemd.enable = true;
@@ -96,7 +154,7 @@ in {
 
         start = ["workspaces" "active_window"];
         center = ["clock"];
-        end = ["out_vol" "in_vol" "privacy" "media" "matt/wg-toggle:toggle" "clipboard" "tray" "battery" "clock-date"];
+        end = ["out_vol" "in_vol" "privacy" "media" "matt/ts-toggle:toggle" "matt/wg-toggle:toggle" "clipboard" "tray" "battery" "clock-date"];
       };
 
       widget = {

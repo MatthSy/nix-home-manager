@@ -9,6 +9,7 @@ local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 local scdMod = "ALT" -- Sets alt as second mod key
 
 local terminal = "kitty"
+local scdTerminal = "foot"
 local fileManager = "dolphin"
 local fileManagerBis = "nemo"
 -- local menu = "bash --login -c \"wofi --show drun -l top -i\"" -- wofi --show drun -l top -i
@@ -17,6 +18,7 @@ local webBrowser = "firefox"
 
 -- Binds to run some apps
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
+hl.bind(mainMod .. " + Shift + Return", hl.dsp.exec_cmd(scdTerminal))
 hl.bind(mainMod .. " + F", hl.dsp.exec_cmd(webBrowser))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd(fileManagerBis))
